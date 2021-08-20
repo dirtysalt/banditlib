@@ -13,7 +13,4 @@ def configure(conf):
   conf.load('compiler_cxx')
 
 def build(bld):
-  bld(features = 'cxx cxxprogram', source = 'bandit/util.cpp main.cpp',includes = [".", "./bandit"], target = 'main', cxxflags = CXXFLAGS)
-
-
-
+  bld(features = 'cxx cxxprogram', source = 'src/bandit/util.cpp main.cpp',includes = [".", "./src",], target = 'main', cxxflags = CXXFLAGS)
