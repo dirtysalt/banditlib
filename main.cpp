@@ -20,7 +20,7 @@ using namespace std;
 using namespace bandit;
 
 void example1(const uint T, const uint RunNum){
-  const uint K = 10; //=arms.size();
+  const uint K = 4; //=arms.size();
   const uint P = 8;  //=policies.size()
   RoundwiseLog log(K, P, T) ;
   vector<ArmPtr> arms;
@@ -29,16 +29,20 @@ void example1(const uint T, const uint RunNum){
   for(uint run=0;run<RunNum;++run){
     cout << "run=" << run << endl;
     arms.clear();
-    arms.push_back( ArmPtr(new BernoulliArm(0.05)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.05)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.05)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.10)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.02)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.02)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.02)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.01)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.01)) );
-    arms.push_back( ArmPtr(new BernoulliArm(0.01)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.05)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.05)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.05)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.10)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.02)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.02)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.02)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.01)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.01)) );
+    // arms.push_back( ArmPtr(new BernoulliArm(0.01)) );
+    arms.push_back( ArmPtr(new BernoulliArm(0.97)) );
+    arms.push_back( ArmPtr(new BernoulliArm(0.18)) );
+    arms.push_back( ArmPtr(new BernoulliArm(0.8)) );
+    arms.push_back( ArmPtr(new BernoulliArm(0.56)) );
     if(K != arms.size()){
       cout << "arm size does not match" << endl;
       abort();
@@ -63,7 +67,7 @@ void example1(const uint T, const uint RunNum){
   vector<string> armNames;
   for(uint i=0;i<arms.size();++i){
     armNames.push_back( arms[i]->toString() );
-  }  
+  }
   vector<string> policyNames;
   for(uint p=0;p<policies.size();++p){
     policyNames.push_back( policies[p]->toString() );

@@ -11,6 +11,7 @@ public:
   virtual double pull() = 0;
   virtual double getExpectedReward() = 0;
   virtual std::string toString() = 0;
+    virtual ~Arm() = default;
 };
 
 } //namespace
